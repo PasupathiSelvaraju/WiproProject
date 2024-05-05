@@ -1,0 +1,67 @@
+
+Task 1: Take an array and print the sum of its elements
+   
+   import java.util.Scanner;
+
+public class ArraySum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input the size of the array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        
+        // Declare an array of the given size
+        int[] array = new int[size];
+        
+        // Input array elements
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+        
+        // Calculate the sum of the elements
+        int sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        
+        // Print the sum
+        System.out.println("Sum of the elements: " + sum);
+    }
+}
+
+
+Task 2: Take an array and store the square of the elements in the same array and then print
+
+   import java.util.Scanner;
+
+public class SquareArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input the size of the array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        
+        // Declare an array of the given size
+        int[] array = new int[size];
+        
+        // Input array elements
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+        
+        // Square each element of the array
+        for (int i = 0; i < size; i++) {
+            array[i] *= array[i];
+        }
+        
+        // Print the squared elements
+        System.out.println("Squared elements of the array:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}

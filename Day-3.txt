@@ -1,0 +1,97 @@
+
+Task 1: Data Types/Variables
+
+   public class SwapVariables {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 10;
+
+        System.out.println("Before swapping:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+
+        // Swapping without using a third variable
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.println("\nAfter swapping:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+    }
+}
+
+
+Task 2: Operators
+
+    public class SimpleCalculator {
+    public static void main(String[] args) {
+        if (args.length != 3) {
+            System.out.println("Usage: java SimpleCalculator <num1> <operator> <num2>");
+            return;
+        }
+
+        double num1 = Double.parseDouble(args[0]);
+        double num2 = Double.parseDouble(args[2]);
+        char operator = args[1].charAt(0);
+        double result = 0;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Invalid operator");
+                return;
+        }
+
+        System.out.println("Result: " + result);
+    }
+}
+
+
+Task 3: Control Flow
+
+    import java.util.Scanner;
+
+public class PrimeNumberChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        scanner.close();
+
+        boolean isPrime = true;
+
+        if (number <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(number + " is a prime number.");
+        } else {
+            System.out.println(number + " is not a prime number.");
+        }
+    }
+}

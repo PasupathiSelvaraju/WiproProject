@@ -1,0 +1,93 @@
+Task 4: Arrays - Declaration, Initialization, and Usage
+
+    public class ReverseArray {
+    public static void main(String[] args) {
+        int[] numbers = new int[5]; // Declare an array of integers with size 5
+        // Initialize the array with consecutive numbers
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = i + 1;
+        }
+        // Print the array in reverse order
+        for (int i = numbers.length - 1; i >= 0; i--) {
+            System.out.print(numbers[i] + " ");
+        }
+    }
+}
+
+
+Task 5: Two-Sum Problem
+
+    import java.util.HashMap;
+
+public class TwoSum {
+    public static int[] findTwoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[]{-1, -1}; // No solution found
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = findTwoSum(nums, target);
+        System.out.println("Indices: " + result[0] + ", " + result[1]);
+    }
+}
+
+
+Task 6: Understanding Functions through Arrays
+
+   public class SumArray {
+    public static int sumArray(int[] arr, int index) {
+        if (index < 0) {
+            return 0;
+        }
+        return arr[index] + sumArray(arr, index - 1);
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 4, 5};
+        System.out.println("Sum: " + sumArray(numbers, numbers.length - 1));
+    }
+}
+
+Task 7: Array Sorting and Searching
+
+   public class ArrayOperations {
+    public static void bruteForceSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static int performLinearSearch(int[] arr, int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
+                return i; // Element found, return index
+            }
+        }
+        return -1; // Element not found
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = {5, 3, 7, 2, 8};
+        bruteForceSort(numbers);
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+        System.out.println("\nIndex of 7: " + performLinearSearch(numbers, 7));
+    }
+}
